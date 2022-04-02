@@ -34,7 +34,7 @@ app.use(`${api}/users`,usersRouter)
 
 
 mongoose.connect(process.env.CONNECTOIN_STRING)
-    .then(()=> console.log('Databse Connection is readuy......'))
+    .then(()=> console.log('Databse Connection is ready......'))
     .catch((err)=> console.log(err))
 
 const port =process.env.PORT

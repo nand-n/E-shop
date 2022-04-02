@@ -1,5 +1,6 @@
 const router=require('express').Router()
 const {Catagory} =require('../models/catagorie')
+const { Product } = require('../models/product')
 
 router.get(`/`, async (req,res)=>{
     
@@ -46,16 +47,6 @@ router.delete('/:id',async (req,res)=>{
         .catch(err => res.status(400).json({success:false, eroor:err}))
 })
 
-// router.delete('/:id', (req,res)=>{
-//     Catagory.findByIdAndRemove(req.params.id)
-//         .then(catagory=>{
-//             if(catagory) return res.status(200).json({success:true,message:'The Catagory is Deleted'})
-//             else return res.status(400).json({success:false,message:'Catagory not Found '})
-//         })
-//         .catch(err => {
-//             return res.status(400).json({success:false,error :err})
-//         })
-// })
 
 
 

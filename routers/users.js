@@ -28,7 +28,7 @@ router.post('/',async (req,res)=>{
 
     if(!user) return res.status(404).send('The User can not be created')
     
-    res.send(catagory )
+    res.send(user )
 })
 
 module.exports= router

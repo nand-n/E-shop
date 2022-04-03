@@ -4,26 +4,26 @@ const app =express()
 const  morgan = require('morgan')
 const mongoose =require('mongoose')
 const cors =require('cors')
+require('dotenv/config')
             
 const productRouter=require('./routers/products')
 const catagoriesRouter =require('./routers/catagories')
 const ordersRouter =require('./routers/orders')
 const usersRouter =require('./routers/users')
+const authJwt = require('./helpers/jwt')
+const api = process.env.API_URL
 
 app.use(cors())
 app.options('*', cors())
-require('dotenv/config')
-
-
 
 //middeleware
 app.use(bodyParser.json())
 app.use(morgan('tiny'))
+app.use(authJwt)
 
 //routers
 
 
-const   api = process.env.API_URL
 
 app.use(`${api}/products`,productRouter)
 app.use(`${api}/catagories`,catagoriesRouter)

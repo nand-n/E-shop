@@ -24,7 +24,7 @@ const userSchema=new  mongoose.Schema({
     },
     apartment:{
         type:String ,
-        default:''
+        default:'' 
     },
     city:{
         type:String ,
@@ -50,10 +50,12 @@ userSchema.virtual('id').get(function(){
 })
 
 userSchema.set('toJSON',{
-    virtual:true
+    virtuals:true
 })
 
 
+
 exports.User=mongoose.model('User',userSchema)
+//this is the user schema 
 
 exports.userSchema=userSchema

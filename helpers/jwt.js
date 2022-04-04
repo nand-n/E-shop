@@ -4,7 +4,7 @@ function authJwt(){
    const secret= process.env.SECRET
     return expressJwt({
         secret,
-        algorithms:['RS256']
+        algorithms:['HS256']
     })
 }
 

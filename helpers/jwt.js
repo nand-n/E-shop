@@ -1,11 +1,31 @@
-const expressJwt = require('express-jwt')
+const expressJwt= require('express-jwt')
+const res = require('express/lib/response')
 
 function authJwt(){
-   const secret= process.env.SECRET
+    const secret=process.env.SECRET
+    const api=process.env.API_URL
     return expressJwt({
         secret,
-        algorithms:['HS256']
+        algorithms:['HS256'],
+        isRevoked:isRevoked
+        
+    }).unless({
+        path:[
+            {url: /\/api\/v1\/products(.*)/,methods:['GET','OPTIONS']},
+            {url: /\/api\/v1\/catagories(.*)/,methods:['GET','OPTIONS']},
+            `${api}/users/login`,
+            `${api}/users/register`
+        ]
     })
+    
 }
 
-module.exports = authJwt
+
+async function isRevoked(req,payload,done){
+    if(!payload.isAdmin){
+        done( null,true)
+    }
+    done()
+}
+
+module.exports=authJwt

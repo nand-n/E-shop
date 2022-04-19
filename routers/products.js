@@ -1,8 +1,8 @@
 const router=require('express').Router()
 const {Product} =require('../models/product')
-// const {Catagory} =require('./catagories')
 const {Catagory} =require('../models/catagorie')
 const mongoose= require('mongoose')
+
 router.get(`/`, async (req,res)=>{
     
     let filter={}

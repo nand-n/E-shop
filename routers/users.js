@@ -7,7 +7,7 @@ router.get(`/`, async (req,res)=>{
     
     const userList = await User.find().select('name phone email')
 
-    if(!userList) res.status(500).json({sucess:false})
+    if(!userList) res.status(500).json({sucess:false}) 
 
     res.send(userList)
 })
@@ -89,8 +89,7 @@ router.delete('/:id',async (req,res)=>{
                         else{ res.status(400).json({success:false,message:'The User Could not be Founded '})}} )
        .catch(err => res.status(400).json({success:false, eroor:err}))
 })
-
-
+ 
 
 module.exports= router
 

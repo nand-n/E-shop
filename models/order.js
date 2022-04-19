@@ -6,13 +6,13 @@ const orderSchema= mongoose.Schema({
         ref: 'OrderItem',
         required:true
     }],
-
-    shipingAddress1:{
+ 
+    shippingAddress1:{
         type:String,
         required:true
     },
 
-    shipingAddress2:{
+    shippingAddress2:{
         type:String,
         required:true
     },
@@ -48,10 +48,9 @@ const orderSchema= mongoose.Schema({
     dateOrdered:{
         type:Date,
         defualt:Date.now
-    },
-
-
+    }
 })
+  
 orderSchema.virtual('id').get(function (){
     return this._id.toHexString()
 })

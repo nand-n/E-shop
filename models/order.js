@@ -47,11 +47,11 @@ const orderSchema= mongoose.Schema({
     },
     dateOrdered:{
         type:Date,
-        defualt:Date.now,
-        required:true
+        default: Date.now,
+
     }
 })
-  
+   
 orderSchema.virtual('id').get(function (){
     return this._id.toHexString()
 })
@@ -62,27 +62,3 @@ orderSchema.set('toJSON',{
 exports.Order=mongoose.model('Order',orderSchema)
 
 
-/*
-order Example
-    {
-        "orderItems":[
-            {
-                "quantity":3,
-                "product":"fcdafldshafkaskdlfnksdaflkdsaj"
-            },
-            {
-                "quantity":2,
-                "product":"fcdafldshafkaskdlfnksdaflkdsaj"
-            }
-        ],
-        "shippingAddress1":"Adama Street ,45",
-        "shippingAddress2":"Adama Street ,85",
-        "city":"Adama",
-        "country":"ET",
-        "phone":"+251937108836",
-        "user":"gakdsfjhlskdajgfklsdajfkfhaskldjf",
-        
-
-     }
-
- **/

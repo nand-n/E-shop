@@ -1,0 +1,62 @@
+    //to register A new User
+        {
+        
+        "name":"Nah",
+        "email":"nah@mail.com",
+        "password":"123456",
+        "phone":"0937108836",
+        "isAdmin":false,
+        "apartment":"apartment 20",
+        "zip":"112233",
+        "street":"123456",
+        "city":"AA",
+        "country":"Ethiopia"
+        
+
+     }
+     //to login existed user
+         {
+        
+      
+        "email":"nah@mail.com",
+        "password":"123456"
+        
+     }
+
+     //to create Product 
+     {
+        "name":"samsung S10",
+        "description":"samsung S10 is one of the best smartphone on the market with high spec functionalites",
+        "richDescription":"smartphone with the best high end specification",
+        "image":"samsung S10 image",
+        "brand":"samsung ",
+        "price":25000,
+        "catagory":"625bff96ca3849825531370a",
+        "countInStock":10,
+        "rating":5,
+        "numReview":6,
+        "isFeatured":true
+
+}
+    //to create orderof products
+    {
+        "orderItems":[
+            {
+                "quantity":3,
+                "product":"625c0113ca38498255313712"
+            },
+            {
+                "quantity":2,
+                "product":"625c0113ca38498255313712"
+            }
+        ],
+        "shippingAddress1":"aa Street ,45",
+        "shippingAddress2":"aa Street ,85",
+        "city":"AA",
+        "country":"ETh",
+        "phone":"+251937108836",
+        "zip":"1000",
+        "user":"625bfececa38498255313707"
+        
+
+     }

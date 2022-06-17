@@ -1,33 +1,31 @@
-const expressJwt= require('express-jwt')
-const res = require('express/lib/response')
+const expressJwt = require('express-jwt');
+const res = require('express/lib/response');
 
-function authJwt(){
-    const secret=process.env.SECRET
-    const api=process.env.API_URL
-    return expressJwt({
-        secret,
-        algorithms:['HS256'],
-        isRevoked:isRevoked
-        
-    }).unless({
-        path:[
-            {url: /\/public\/uploads(.*)/,methods:['GET','OPTIONS']},
-            {url: /\/api\/v1\/products(.*)/,methods:['GET','OPTIONS']},
-            {url: /\/api\/v1\/catagories(.*)/,methods:['GET','OPTIONS']},
-            `/public/uploads`,  
-            `${api}/users/login`,
-            `${api}/users/register`
-        ]
-    })
-    
+function authJwt() {
+  const secret = process.env.SECRET;
+  const api = process.env.API_URL;
+  return expressJwt({
+    secret,
+    algorithms: ['HS256'],
+    isRevoked: isRevoked,
+  }).unless({
+    path: [
+      { url: /\/public\/uploads(.*)/, methods: ['GET', 'OPTIONS'] },
+      { url: /\/api\/v1\/products(.*)/, methods: ['GET', 'OPTIONS'] },
+      { url: /\/api\/v1\/catagories(.*)/, methods: ['GET', 'OPTIONS'] },
+      `/public/uploads`,
+      `${api}/public/uploads`,
+      `${api}/users/login`,
+      `${api}/users/register`,
+    ],
+  });
 }
 
-
-async function isRevoked(req,payload,done){
-    if(!payload.isAdmin){
-        done( null,true)
-    }
-    done()
+async function isRevoked(req, payload, done) {
+  if (!payload.isAdmin) {
+    done(null, true);
+  }
+  done();
 }
 
-module.exports=authJwt;
+module.exports = authJwt;

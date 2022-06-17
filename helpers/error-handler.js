@@ -1,12 +1,13 @@
-function errorHandler(err,req,res,next) {
-
-    if(err.name === 'UnauthorizedError'){
-        return  res.status(401).json({message:"The User is not Autherized.."})
-    }
-    if(err.name===' ValidationError'){
-       return res.status(400).json({message:err})
-    }
-    return res.status(500).json({message:err})
+function errorHandler(err, req, res, next) {
+  if (err.name === 'UnauthorizedError') {
+    return res
+      .status(401)
+      .json({ message: 'The User is not Autherized damn..' });
+  }
+  if (err.name === ' ValidationError') {
+    return res.status(400).json({ message: err });
+  }
+  return res.status(500).json({ message: err });
 }
 
-module.exports=errorHandler
+module.exports = errorHandler;

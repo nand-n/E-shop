@@ -39,7 +39,7 @@ app.use(`${api}/users`,usersRouter)
 //CONNECTOIN_STRING
 
 
-mongoose.connect(process.env.LOCAL_CONNECTION)
+mongoose.connect(process.env.CONNECTOIN_STRING)
     .then(()=> console.log('Databse Connection is ready......'))
     .catch((err)=> console.log(err))
 

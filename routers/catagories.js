@@ -33,7 +33,7 @@ router.post('/',async (req,res)=>{
         name:req.body.name,
         icon:req.body.icon,
         color:req.body.color
-    })
+    })   
 
     catagory =await catagory.save()
 
